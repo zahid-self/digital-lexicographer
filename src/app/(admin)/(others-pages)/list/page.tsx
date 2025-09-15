@@ -23,83 +23,63 @@ function VocabularyModal({
 }) {
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-in fade-in duration-200">
-      <div className="bg-card rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden animate-in zoom-in-95 duration-200">
-        {/* Header */}
-        <div className="p-6 border-b border-border bg-primary/5">
-          <div className="flex justify-between items-start">
-            <div>
-              <h3 className="text-2xl font-bold text-primary mb-1">{vocabulary.word}</h3>
-              <p className="text-sm text-muted-foreground">
-                Added on {vocabulary.createdAt.toLocaleDateString()} at {vocabulary.createdAt.toLocaleTimeString()}
-              </p>
+      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-[584px] w-full p-5 lg:p-10 animate-in zoom-in-95 duration-200">
+        <h4 className="mb-6 text-lg font-medium text-gray-800 dark:text-white/90">Vocabulary Details</h4>
+
+        <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
+          <div className="col-span-1 sm:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Word</label>
+            <div className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:focus:border-brand-800 flex items-center">
+              <span className="font-semibold text-lg text-blue-600 dark:text-blue-400">{vocabulary.word}</span>
             </div>
-            <button
-              onClick={onClose}
-              className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-foreground"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+          </div>
+
+          <div className="col-span-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Bangla Meaning</label>
+            <div className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:focus:border-brand-800 flex items-center">
+              <span style={{ fontFamily: "Arial, sans-serif" }}>
+                {vocabulary.meaningBangla || <span className="text-gray-400 italic">Not provided</span>}
+              </span>
+            </div>
+          </div>
+
+          <div className="col-span-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">English Meaning</label>
+            <div className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:focus:border-brand-800 flex items-center">
+              <span>{vocabulary.meaningEnglish || <span className="text-gray-400 italic">Not provided</span>}</span>
+            </div>
+          </div>
+
+          <div className="col-span-1 sm:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Example Sentence</label>
+            <div className="min-h-[44px] w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:focus:border-brand-800 flex items-center">
+              <span className="italic">
+                {vocabulary.exampleSentence ? (
+                  `"${vocabulary.exampleSentence}"`
+                ) : (
+                  <span className="text-gray-400 not-italic">No example provided</span>
+                )}
+              </span>
+            </div>
+          </div>
+
+          <div className="col-span-1 sm:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Date Added</label>
+            <div className="h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 bg-transparent text-gray-800 border-gray-300 focus:border-brand-300 focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:focus:border-brand-800 flex items-center">
+              <span className="text-gray-600 dark:text-gray-400">
+                {vocabulary.createdAt.toLocaleDateString()} at {vocabulary.createdAt.toLocaleTimeString()}
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6 space-y-6 overflow-y-auto">
-          {vocabulary.meaningBangla && (
-            <div className="space-y-2">
-              <label className="block text-sm font-semibold text-foreground">Bangla Meaning</label>
-              <div className="bg-muted/50 border border-border rounded-lg p-4">
-                <p className="text-foreground text-base leading-relaxed" style={{ fontFamily: "Arial, sans-serif" }}>
-                  {vocabulary.meaningBangla}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {vocabulary.meaningEnglish && (
-            <div className="space-y-2">
-              <label className="block text-sm font-semibold text-foreground">English Meaning</label>
-              <div className="bg-muted/50 border border-border rounded-lg p-4">
-                <p className="text-foreground text-base leading-relaxed">{vocabulary.meaningEnglish}</p>
-              </div>
-            </div>
-          )}
-
-          {vocabulary.exampleSentence && (
-            <div className="space-y-2">
-              <label className="block text-sm font-semibold text-foreground">Example Sentence</label>
-              <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
-<p className="text-foreground text-base leading-relaxed italic">&quot;{vocabulary.exampleSentence}&quot;</p>
-              </div>
-            </div>
-          )}
-
-          {!vocabulary.meaningBangla && !vocabulary.meaningEnglish && !vocabulary.exampleSentence && (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              </div>
-              <p className="text-muted-foreground">No additional details available for this word.</p>
-            </div>
-          )}
-        </div>
-
-        {/* Footer */}
-        <div className="p-6 border-t border-border bg-muted/30 flex justify-end gap-3">
+        <div className="flex items-center justify-end w-full gap-3 mt-6">
           <button
             onClick={() => {
               onDelete(vocabulary.id)
               onClose()
             }}
-            className="px-4 py-2 bg-destructive hover:bg-destructive/90 text-destructive-foreground rounded-lg font-medium text-sm transition-colors flex items-center gap-2"
+            className="px-4 py-2 text-sm font-medium text-red-600 bg-white border border-red-300 rounded-lg hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-500/20 dark:bg-gray-800 dark:text-red-400 dark:border-red-600 dark:hover:bg-red-900/20 transition-colors flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -113,9 +93,15 @@ function VocabularyModal({
           </button>
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-lg font-medium text-sm transition-colors"
+            className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700 transition-colors"
           >
             Close
+          </button>
+          <button
+            onClick={onClose}
+            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors"
+          >
+            Done
           </button>
         </div>
       </div>
@@ -140,7 +126,7 @@ export default function VocabulariesPage() {
     setSelectedVocabulary(null)
   }
 
-  const handleDeleteVocabulary = () => {
+  const handleDeleteVocabulary = (id: string) => {
     const event = new Event("storage")
     window.dispatchEvent(event)
     showToastMessage("Vocabulary deleted successfully", "success")
@@ -148,7 +134,6 @@ export default function VocabulariesPage() {
 
   return (
     <div>
-      {/* Toast Notification */}
       {showToast && (
         <div
           className={`fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 animate-in slide-in-from-top-2 duration-300 ${showToast.type === "success"
@@ -173,7 +158,6 @@ export default function VocabulariesPage() {
 
       <VocabularyTable onVocabularyClick={handleVocabularyClick} />
 
-      {/* Modal */}
       {selectedVocabulary && (
         <VocabularyModal vocabulary={selectedVocabulary} onClose={handleCloseModal} onDelete={handleDeleteVocabulary} />
       )}
