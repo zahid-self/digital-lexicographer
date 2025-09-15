@@ -126,7 +126,7 @@ export default function VocabulariesPage() {
     setSelectedVocabulary(null)
   }
 
-  const handleDeleteVocabulary = (id: string) => {
+  const handleDeleteVocabulary = () => {
     const event = new Event("storage")
     window.dispatchEvent(event)
     showToastMessage("Vocabulary deleted successfully", "success")
