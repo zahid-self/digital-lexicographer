@@ -1,0 +1,27 @@
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for the icon -->
+  <circle cx="40" cy="40" r="30" fill="#465FFF" opacity="0.1"/>
+  
+  <!-- Book/Dictionary icon -->
+  <rect x="25" y="28" width="20" height="16" rx="2" fill="#465FFF" stroke="#465FFF" stroke-width="1"/>
+  <rect x="47" y="28" width="20" height="16" rx="2" fill="none" stroke="#465FFF" stroke-width="1"/>
+  
+  <!-- Digital elements - small dots representing pixels/data -->
+  <circle cx="30" cy="33" r="1" fill="white"/>
+  <circle cx="35" cy="33" r="1" fill="white"/>
+  <circle cx="40" cy="33" r="1" fill="white"/>
+  <circle cx="30" cy="37" r="1" fill="white"/>
+  <circle cx="35" cy="37" r="1" fill="white"/>
+  
+  <!-- Lines representing text in the open book -->
+  <line x1="50" y1="32" x2="64" y2="32" stroke="#465FFF" stroke-width="1"/>
+  <line x1="50" y1="36" x2="62" y2="36" stroke="#465FFF" stroke-width="1"/>
+  <line x1="50" y1="40" x2="65" y2="40" stroke="#465FFF" stroke-width="1"/>
+  
+  <!-- Main text -->
+  <text x="85" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#465FFF">Digital</text>
+  <text x="85" y="55" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#465FFF">Lexicographer</text>
+  
+  <!-- Subtle underline -->
+  <line x1="85" y1="60" x2="280" y2="60" stroke="#465FFF" stroke-width="1" opacity="0.3"/>
+</svg>
