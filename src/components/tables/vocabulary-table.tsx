@@ -63,7 +63,7 @@ export function VocabularyTable({ onVocabularyClick }: VocabularyTableProps) {
     const loadVocabularies = () => {
       const stored = localStorage.getItem("vocabularies")
       if (stored) {
-        const parsed = JSON.parse(stored).map((vocab: any) => ({
+        const parsed = JSON.parse(stored).map((vocab: VocabularyEntry) => ({
           ...vocab,
           createdAt: new Date(vocab.createdAt),
         }))

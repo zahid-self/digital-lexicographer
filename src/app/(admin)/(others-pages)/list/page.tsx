@@ -70,7 +70,7 @@ function VocabularyModal({
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-foreground">Example Sentence</label>
               <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
-                <p className="text-foreground text-base leading-relaxed italic">"{vocabulary.exampleSentence}"</p>
+<p className="text-foreground text-base leading-relaxed italic">&quot;{vocabulary.exampleSentence}&quot;</p>
               </div>
             </div>
           )}
@@ -140,7 +140,7 @@ export default function VocabulariesPage() {
     setSelectedVocabulary(null)
   }
 
-  const handleDeleteVocabulary = (id: string) => {
+  const handleDeleteVocabulary = () => {
     const event = new Event("storage")
     window.dispatchEvent(event)
     showToastMessage("Vocabulary deleted successfully", "success")
